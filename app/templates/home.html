@@ -1,0 +1,212 @@
+{% extends "layot.html" %}
+
+{% block content %}
+<h1>🌻 Discover the Future of Farming with AgriVibe 🌾</h1>
+    <div class="landing-page">
+        <!-- Hero Section with Background Image -->
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-content text-center">
+                <h1 class="hero-title animate__animated animate__fadeInUp">Welcome to AgriVibe</h1>
+               <span> <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Transform Your Farming Future with AgriVibe:
+                     Smart Crop Recommendations at Your Fingertips</p>
+                <a href="#services" class="btn btn-primary btn-lg animate__animated animate__fadeInUp animate__delay-2s">Explore Our Services</a>
+            </div>
+        </div>
+
+        <!-- Project Overview Section -->
+       <!-- About Section -->
+<section id="about" class="container my-5 text-center">
+    <h2 class="section-title animate__animated animate__fadeIn">About Our Project</h2>
+    <p class="section-description animate__animated animate__fadeIn animate__delay-1s">
+        AgriVibe is an advanced data-driven platform that leverages machine learning algorithms to deliver accurate, real-time crop recommendations. It also offers Yield Prediction to estimate potential crop yields and Disease Detection to identify and mitigate threats, ensuring optimized crop management and improved productivity.
+    </p>
+</section>
+
+
+        <!-- Services Section -->
+        <section id="services" class="services-section my-5">
+            <h2 class="section-title text-center animate__animated animate__fadeIn">Our Services</h2>
+            <div class="row animate__animated animate__fadeIn animate__delay-2s">
+                <div class="col-md-4 service-item">
+                    <div class="service-card" href="{{ url_for('predict_crop') }}">
+                        <a class = "link-blue" href="{{ url_for('predict_crop') }}">
+                        <img src="{{ url_for('static', filename='crop.png') }}" alt="Service 1" class="service-img">
+                        <h4>Smart Crop Prediction</h4>
+                        <p>Get real-time crop suggestions based on local environmental factors.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 service-item">
+                    <div class="service-card">
+                        <a class = "link-blue" href="{{ url_for('predict_yield') }}">
+                        <img src="{{ url_for('static', filename='yield.jpeg') }}" alt="Service 2" class="service-img">
+                        <h4 >Smart yield Prediction</h4>
+                        <p>We forecast crop yield based on current soil conditions and weather patterns, ensuring better planning.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 service-item" >
+                    <div class="service-card">
+                        <a class = "link-blue" href="{{ url_for('predict_disease') }}">   
+                        <img src="{{ url_for('static', filename='disease.jpeg') }}" alt="Service 3" class="service-img">
+                        <h4>Disease Detection</h4>
+                        <p>Using AI, we detect potential diseases in crops, helping you take action before the problem worsens.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="cta-section text-center my-5">
+            <h2 class="cta-title animate__animated animate__fadeIn">Join the AgriVibe Movement</h2>
+            <p class="cta-description animate__animated animate__fadeIn animate__delay-1s">
+                Be part of the future of agriculture! Start using AgriVibe today and unlock the potential of smart farming.
+            </p>
+            <a href="{{ url_for('register') }}" class="btn btn-success btn-lg animate__animated animate__fadeIn animate__delay-2s">Get Started</a>
+        </section>
+    </div>
+<style>
+    /* Hero Section */
+    /* Style for the anchor tag with the 'link-blue' class */
+.link-blue {
+    color: black; /* Blue color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-blue:hover {
+    color: #137842; /* Darker blue color on hover */
+    transform: scale(1.05); /* Slightly enlarge the element on hover */
+}
+
+.link-blue:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.hero-section {
+    position: relative;
+    background-image: url('path-to-your-agriculture-image.jpg'); /* Add your agriculture-themed image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(80 187 48/50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    animation: fadeInUp 1s;
+    
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    animation: fadeInUp 1s ;
+    
+}
+
+.btn-primary {
+    padding: 15px 25px;
+    background-color: #57b846;
+    border-color: #57b846;
+    animation: fadeInUp 1s;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: fadeIn 1s;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #555;
+    animation: fadeIn 1s 1s;
+}
+
+/* Services Section */
+.services-section .service-item {
+    margin-bottom: 30px;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.service-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #57b846;
+    padding: 50px;
+    background: rgb(80 187 48/50%);
+    border-radius: 10px;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Additional Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+</style>
+{% endblock content %}

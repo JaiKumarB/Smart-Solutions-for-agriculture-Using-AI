@@ -1,0 +1,88 @@
+{% extends "layot.html" %}
+
+{% block content %}
+<h1>Welcome to AgriVibe 🌱</h1>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%; background: linear-gradient(to bottom, #6DBE45, #3D9441); border-radius: 12px;">
+        <div class="card-body p-4" style="background: rgba(255, 255, 255, 0.85); border-radius: 12px;">
+            <h3 class="text-center text-dark mb-4" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Join Today - Start Your Agri Journey</h3>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <!-- Username Field -->
+                    <div class="form-group mb-3">
+                        {{ form.username.label(class="form-control-label text-dark") }}
+                        {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid bg-light text-dark") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.username(class="form-control form-control-lg bg-light text-dark") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group mb-3">
+                        {{ form.email.label(class="form-control-label text-dark") }}
+                        {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid bg-light text-dark") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.email(class="form-control form-control-lg bg-light text-dark") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group mb-3">
+                        {{ form.password.label(class="form-control-label text-dark") }}
+                        {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid bg-light text-dark") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.password(class="form-control form-control-lg bg-light text-dark") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group mb-3">
+                        {{ form.confirm_password.label(class="form-control-label text-dark") }}
+                        {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid bg-light text-dark") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg bg-light text-dark") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="form-group mb-3">
+                    {{ form.submit(class="btn btn-success btn-lg w-100") }}
+                </div>
+            </form>
+
+            <!-- Sign In Link -->
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    Already Have an Account? <a href="{{ url_for('login') }}" class="text-warning">Sign In</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

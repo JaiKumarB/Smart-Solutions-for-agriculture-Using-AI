@@ -1,0 +1,131 @@
+{% extends "layot.html" %}
+
+{% block content %}
+<h4 class="text-center my-4" style="color: #66BB6A; font-family: 'Merriweather', serif; font-weight: 700; font-size: 2.0rem; text-transform: capitalize;     letter-spacing: 1px; animation: fadeInUp 1s ease-in-out;">
+    Unlock the Power of Precision 🌾 – Predict Your Crop's Yield Like Never Before!
+</h4>
+<div class="container py-5">
+    <!-- Page Header -->
+    <h1 class="text-center mb-4 text-success" style="animation: fadeIn 1.5s;">🌾 Crop Yield Prediction Per Country 🌎</h1>
+    <div class="card shadow-lg border-0" style="background-color: #2c3e50; border-radius: 12px; animation: slideUp 1.5s;">
+        <div class="card-body">
+            <h2 class="text-center text-light mb-4" style="animation: zoomIn 1s;">Input All Features Here</h2>
+            
+            <!-- Input Form -->
+            <form action="/predict_yield" method="post">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="Year" class="form-label text-light">Year</label>
+                        <input type="number" class="form-control bg-dark text-light border-0" name="Year" value="2013" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="average_rain_fall_mm_per_year" class="form-label text-light">Average Rainfall (mm/year)</label>
+                        <input type="number" class="form-control bg-dark text-light border-0" name="average_rain_fall_mm_per_year" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pesticides_tonnes" class="form-label text-light">Pesticides (tonnes)</label>
+                        <input type="number" class="form-control bg-dark text-light border-0" name="pesticides_tonnes" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="avg_temp" class="form-label text-light">Average Temperature (°C)</label>
+                        <input type="number" class="form-control bg-dark text-light border-0" name="avg_temp" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Area" class="form-label text-light">Area</label>
+                        <input type="text" class="form-control bg-dark text-light border-0" name="Area" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Item" class="form-label text-light">Item</label>
+                        <input type="text" class="form-control bg-dark text-light border-0" name="Item" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success btn-lg mt-3 w-100" style="animation: bounceIn 1s;">Predict Yield</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Prediction Result -->
+            {% if prediction %}
+                <div class="text-center mt-4" style="animation: pulse 2s infinite;">
+                    <h2 class="text-light">Predicted Yield:</h2>
+                    {% if prediction is string %}
+                        <h3 class="text-danger">{{ prediction }}</h3> <!-- Error message -->
+                    {% else %}
+                        <h3 class="text-info">{{ prediction }}</h3> <!-- Valid numeric prediction -->
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Animations -->
+<style>
+    @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bounceIn {
+        0% {
+            transform: scale(0.8);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+</style>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+{% endblock content %}
