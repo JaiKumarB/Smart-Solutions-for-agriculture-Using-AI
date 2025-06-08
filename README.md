@@ -40,7 +40,5 @@ Contributions to the project are welcome. If you have any suggestions, bug repor
 We would like to express our gratitude to the agricultural research community, farmers, and organizations for providing valuable insights, data, and domain knowledge that contributed to the development of this Crop Recommendation System.
 
 # Contact
-For any inquiries or questions, please contact us at 611noorsaeed@gmail.com
-=======
-# Smart-AI-Solutions-For-Agriculture
->>>>>>> 425b3d7dc3a7ab406733df3388f09232e5edf572
+For any inquiries or questions, please contact us at jaikumarb031@gmail.com
+
